@@ -1,0 +1,25 @@
+{
+	"name": "phputil/httpwrapper",
+	"type": "library",
+	"description": "A simple PSR-7 wrapper for common responses.",
+	"keywords": [ "wrapper", "http", "response", "php", "psr" ],
+	"homepage": "http://github.com/thiagodp/httpwrapper",
+	"license": "LGPL-3",
+	"authors": [ { "name": "Thiago Delgado Pinto" } ],
+	"support": {
+		"issues": "https://github.com/thiagodp/httpwrapper/issues",
+		"source": "https://github.com/thiagodp/httpwrapper"
+	},
+	"require": {
+		"php": ">=5.2.0",
+		"phputil/http": ">=1.4",
+		"phputil/json": ">=1.2"
+	},
+	"require-dev": {
+    },	
+	"suggest": {
+	},
+	"autoload": {
+		"psr-4": { "phputil\\": "lib/" }
+	}
+}
