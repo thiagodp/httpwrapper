@@ -29,9 +29,9 @@ composer require phputil/httpwrapper
 
 ### Example
 
-An example for Slim 3:
+An example with Slim 3:
 
-```command
+```php
 <?php
 require 'vendor/autoload.php';
 
