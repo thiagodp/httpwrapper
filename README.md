@@ -10,7 +10,7 @@ such as [Slim 3](http://www.slimframework.com/),
 [Aura](https://github.com/auraphp/Aura.Router/tree/3.x#aurarouter) or 
 [Zend](https://github.com/zendframework/zend-diactoros).
 
-We use [Semantic Versioning](http://semver.org/). See our [releases](https://github.com/thiagodp/httpwrapper/releases).
+We use [semantic versioning](http://semver.org/). See our [releases](https://github.com/thiagodp/httpwrapper/releases).
 
 Classes:
 
