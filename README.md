@@ -26,3 +26,42 @@ Dependencies (installed automatically by `composer`):
 ```command
 composer require phputil/httpwrapper
 ```
+
+### Example
+
+An example for Slim 3:
+
+```command
+<?php
+require 'vendor/autoload.php';
+
+use \phputil\HttpResponseWrapper;
+use \Slim\App;
+
+$app = new App();
+$hrw = new HttpResponseWrapper();
+
+$app->get( '/names', function ( $request, $response, $args ) use ( $hrw ) {
+
+	$names = array( 'Suzan', 'Mary', 'Mike', 'Bob' );
+
+	// Will return HTTP 200 with the array as JSON encoded with UTF-8
+	return $hrw->with( $response )
+		->withStatusOk()
+		->asJsonUtf8( $names ) // Any var type accepted
+		->end()
+		;
+} );
+
+$app->get( '/bad', function ( $request, $response, $args ) use ( $hrw ) {
+	// Will return HTTP 400
+	return $hrw->with( $response )->withStatusBadRequest->end();
+} );
+
+$app->get( '/i-am-just-curious', function ( $request, $response, $args ) use ( $hrw ) {
+	// Will return HTTP 403 (Forbidden)
+	return $hrw->with( $response )->withStatusForbidden->end();
+} );
+
+?>
+```
