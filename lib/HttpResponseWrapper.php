@@ -22,6 +22,53 @@ class HttpResponseWrapper {
 	
 	function __construct() {}
 	
+	// HELPER METHODS
+	
+	/**
+	 * Return a BAD REQUEST (400) with the content (optional) as JSON UTF-8.
+	 *
+	 * @return ResponseInterface
+	 */
+	function bad( $content = null ) {
+		if ( isset( $content ) ) {
+			return $this->withStatusBadRequest()->asJsonUtf8( $content )->end();		
+		}
+		return $this->withStatusBadRequest()->end();		
+	}
+	
+	/**
+	 * Return an OK (200) with the content (optional) as JSON UTF-8.
+	 *
+	 * @return ResponseInterface
+	 */	
+	function ok( $content = null ) {
+		if ( isset( $content ) ) {
+			return $this->withStatusOk()->asJsonUtf8( $content )->end();
+		}
+		return $this->withStatusOk()->end();
+	}
+	
+	/**
+	 * Return a CREATED (201) with the content (optional) as JSON UTF-8.
+	 *
+	 * @return ResponseInterface
+	 */	
+	function created( $content = null ) {
+		if ( isset( $content ) ) {
+			return $this->withStatusCreated()->asJsonUtf8( $content )->end();
+		}
+		return $this->withStatusCreated()->end();
+	}	
+	
+	/**
+	 * Return a NO CONTENT (204).
+	 *
+	 * @return ResponseInterface
+	 */		
+	function noContent() {
+		return $this->withStatusNoContent()->end();
+	}	
+	
 	// GETTERS & SETTERS
 
 	function get() {
