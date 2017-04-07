@@ -27,9 +27,9 @@ Dependencies (installed automatically by `composer`):
 composer require phputil/httpwrapper
 ```
 
-### Example
+### Example 1
 
-An example with Slim 3:
+Using with Slim 3:
 
 ```php
 <?php
@@ -61,6 +61,41 @@ $app->get( '/bad', function ( $request, $response, $args ) use ( $hrw ) {
 $app->get( '/i-am-just-curious', function ( $request, $response, $args ) use ( $hrw ) {
 	// Will return HTTP 403 (Forbidden)
 	return $hrw->with( $response )->withStatusForbidden->end();
+} );
+
+?>
+```
+
+### Example 2
+
+Also with Slim 3:
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+use \phputil\HttpResponseWrapper;
+use \Slim\App;
+
+$app = new App();
+$hrw = new HttpResponseWrapper();
+
+$app->get( '/names', function ( $request, $response, $args ) use ( $hrw ) {
+
+	$names = array( 'Suzan', 'Mary', 'Mike', 'Bob' );
+
+	// Helper method to return HTTP 200 with a JSON content encoded with UTF-8.
+	return $hrw->with( $response )->ok( $names );
+} );
+
+$app->get( '/bad', function ( $request, $response, $args ) use ( $hrw ) {
+	// Helper method to return HTTP 400 with a JSON content encoded with UTF-8.
+	return $hrw->with( $response )->bad( array( 'Something bad happened' ) );
+} );
+
+$app->get( '/none', function ( $request, $response, $args ) use ( $hrw ) {
+	// Helper method to return HTTP 204.
+	return $hrw->with( $response )->noContent();
 } );
 
 ?>
