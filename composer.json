@@ -4,7 +4,7 @@
 	"description": "A simple PSR-7 wrapper for common responses.",
 	"keywords": [ "wrapper", "http", "response", "php", "psr" ],
 	"homepage": "http://github.com/thiagodp/httpwrapper",
-	"license": "LGPL-3",
+	"license": "LGPL-3.0-or-later",
 	"authors": [ { "name": "Thiago Delgado Pinto" } ],
 	"support": {
 		"issues": "https://github.com/thiagodp/httpwrapper/issues",
